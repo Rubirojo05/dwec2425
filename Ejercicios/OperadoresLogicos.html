@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //OPERADOR AND / Y (&&)
+        var x = 4, y = 2;
+
+        var resultado = (x < 5 && y > 1); //RESULTADO TRUE
+        resultado = (x > 5 && y > 1); //RESULTADO FALSE
+        alert(resultado);
+
+        //OPERADOR OR / O (||)
+        var resultado2 = (x > 5 || y > 1);
+        alert(resultado2);
+
+        //OPERADOR NOT / NO (!)
+        var resultado3 = !(x == y);
+        alert(resultado3);
+
+        //OPERADOR TERNARIO
+        //FORMATO: (CONDICIÓN) ? RESULTADO_CIERTO : RESULTADO_FALSO
+        let edad = 22;
+        let puedeVotar = (edad > 18) ? "Puede votar" : "No puede votar";
+        alert(puedeVotar);
+    </script>
+</body>
+
+</html>

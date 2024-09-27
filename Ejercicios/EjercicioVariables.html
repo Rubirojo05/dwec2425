@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables en JavaScript</title>
+</head>
+
+<body>
+    <p id="parrafo1"></p>
+    <p id="parrafo2"></p>
+    <p id="parrafo3"></p>
+    <script>
+        var nombre;
+        document.getElementById("parrafo1").innerHTML = nombre;
+        nombre = "Belén";
+        document.getElementById("parrafo2").innerHTML = nombre;
+        var pais = "España",
+            nacimiento = 1990,
+            mayoriaEdad = 1990 + 18,
+            boda = "2023";
+        document.getElementById("parrafo3").innerHTML = nombre + " es de " + pais + " y ha nacido en el año " + nacimiento + ", va alcanzar la mayoría de edad en " + mayoriaEdad + "<br/> País es de tipo: " + typeof (pais);
+    </script>
+
+</body>
+
+</html>
