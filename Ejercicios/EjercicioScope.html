@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Scope</title>
+</head>
+
+<body>
+    <script>
+        function pruebaAlcance() {
+            for (i = 0; i < 10; i++) {
+                console.log(i);
+            }
+            for (var j = 5; j < 15; j++) {
+                console.log(j);
+            }
+            for (let k = 10; k < 20; k++) {
+                console.log(k);
+            }
+            console.log({ i, j, k });
+        }
+
+        pruebaAlcance();
+        console.log({ i, j, k });
+
+        /*  i tiene alcance global porque no fue declarada explícitamente.
+            j tiene alcance de función porque fue declarada con var dentro de la función.
+            k tiene alcance de bloque porque fue declarada con let dentro de un bucle for. 
+        */
+    </script>
+</body>
+
+</html>
