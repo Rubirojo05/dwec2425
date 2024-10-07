@@ -1,0 +1,58 @@
+<!--EJERCICIO BÁSICO 2 -->
+
+<!-- Media y suma hasta meter número negativo -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Básico 2</title>
+</head>
+
+<body>
+    <script>
+        let acum = 0;
+        let contador = 0;
+
+        function pedirNumero() {
+            let n = prompt("Ingrese un número (negativo para salir):");
+            n = parseInt(n);
+
+            if (n < 0) {
+                window.alert("Número introducido negativo. Fin del programa");
+                window.alert("La suma acumulada es: " + acum + ", La media es: " + med);
+                console.log("Has introducido un número negativo.");
+                console.log("La suma acumulada es: " + acum);
+                console.log("Contador: " + contador);
+                console.log("La media es: " + med);
+                return;
+            }
+
+            //Acumula el número N introducido
+            acumular(n);
+            //Hace la media de los números introducidos entre el numero de numeros introducidos
+            media();
+            //Se llama a sí misma hasta que el número sea < 0
+            pedirNumero();
+        }
+
+        //Función que suma todos los números introducidos por el usuario.
+        function acumular(n) {
+            acum += n;
+            contador++;
+        }
+        //Función que cuenta cuántos números ha introducido el usuario.
+        function media() {
+            med = acum / contador;
+        }
+
+        //Función que llama a pedirNumero.
+        pedirNumero();
+        
+
+    </script>
+</body>
+
+</html>
