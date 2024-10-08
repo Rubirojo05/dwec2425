@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSULTA THIS</title>
+</head>
+
+<body>
+    <script>
+        const persona = {
+            nombre: "Juan",
+            apellido: "García",
+            consulta: function () {
+                return `${this.nombre} ${this.apellido}`;
+            }
+        }
+
+        console.log(persona.consulta());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametro REST</title>
+</head>
+
+<body>
+    <script>
+
+        //Parametro REST se hace con "..." para que nos diga los argumentos sobrantes.
+
+        function listadoFrutas(fruta1, fruta2, ...restoFrutas){
+            console.log("La fruta 1 es: " + fruta1);
+            console.log("La fruta 2 es: " + fruta2);
+            console.log("La fruta 1 es: " + restoFrutas.join(", ")); //.join(", ") es para que esté separado de , más un espacio.
+        }
+
+        //En este caso el REST es Naranja, Sandía y Melón.
+        listadoFrutas("Manzana", "Banana", "Naranja", "Sandía", "Melón")
+
+
+    </script>
+</body>
+
+</html>

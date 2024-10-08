@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Eficiente sin Array</title>
+</head>
+
+<body>
+    <script>
+        let n1 = Number(prompt("Introduce un número:"));
+        let n2 = Number(prompt("Introduce otro número:"));
+
+        function impar(n1, n2) {
+            // Asegurarse de que n1 sea menor o igual a n2
+            if (n1 > n2) {
+                [n1, n2] = [n2, n1]; // Intercambio de valores
+            }
+
+            // Si el primer número es par, saltamos al siguiente impar
+            if (n1 % 2 === 0) {
+                n1++;
+            }
+
+            let resultado = "";
+
+            // Iteramos solo por los impares, incrementando de 2 en 2
+            for (let i = n1; i <= n2; i += 2) {
+                resultado += i + " ";
+            }
+
+            // Mostrar los impares en una única línea. Opcional: usar .trim() quita el espacio final
+            console.log("Los números impares entre los dos números introducidos son: " + resultado);
+        }
+
+        impar(n1, n2);
+
+
+
+    </script>
+</body>
+
+</html>
