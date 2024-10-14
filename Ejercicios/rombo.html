@@ -25,10 +25,10 @@ Se trata de un rombo de asteriscos centrado en la pantalla.
 
     <script>
         const rombo = document.getElementById('rombo');
-        const altura = 4; // Altura del rombo (número de líneas)
+        const altura = prompt("Escribe la altura del rombo (número de filas):"); // Altura del rombo (número de líneas)
+        const caracter = prompt("Escribe el carácter utilizado en el rombo:");
         const espacio = '&nbsp&nbsp';
-        const caracter = "*";
-
+        
         // Parte superior del rombo
         for (let i = 1; i <= altura; i++) {
             let linea = '';
