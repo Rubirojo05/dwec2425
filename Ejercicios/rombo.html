@@ -25,33 +25,33 @@ Se trata de un rombo de asteriscos centrado en la pantalla.
 
     <script>
         const rombo = document.getElementById('rombo');
-        const altura = prompt("Escribe la altura del rombo (número de filas):"); // Altura del rombo (número de líneas)
+        const altura = Number(prompt("Escribe la altura del rombo (número de filas):")); // Altura del rombo (número de líneas)
         const caracter = prompt("Escribe el carácter utilizado en el rombo:");
         const espacio = '&nbsp&nbsp';
         
         // Parte superior del rombo
-        for (let i = 1; i <= altura; i++) {
+        for (let fila = 1; fila <= altura; fila++) {
             let linea = '';
             // Agregar espacios en blanco
-            for (let j = 1; j <= altura - i; j++) {
+            for (let esp = 1; esp <= altura - fila; esp++) {
                 linea += espacio; // Espacio en blanco
             }
             // Agregar asteriscos
-            for (let k = 1; k <= 2 * i - 1; k++) {
+            for (let ast = 1; ast <= 2 * fila - 1; ast++) {
                 linea += caracter;
             }
             rombo.innerHTML += linea + '<br>'; // Agregar la línea al div
         }
 
         // Parte de abajo del rombo
-        for (let i = altura - 1; i >= 1; i--) {
+        for (let fila = altura - 1; fila >= 1; fila--) {
             let linea = '';
             // Agregar espacios en blanco
-            for (let j = 1; j <= altura - i; j++) {
+            for (let esp = 1; esp <= altura - fila; esp++) {
                 linea += espacio;
             }
             // Agregar asteriscos
-            for (let k = 1; k <= (2 * i - 1); k++) {
+            for (let ast = 1; ast <= (2 * fila - 1); ast++) {
                 linea += caracter;
             }
             rombo.innerHTML += linea + '<br>'; // Agregar la línea al div
