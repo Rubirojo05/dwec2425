@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrones</title>
+</head>
+
+<body>
+    <script>
+        let cadena = prompt("Introduce una cadena de texto: ");
+        console.time();
+        let contador = 0;
+
+        function numeroPatrones(texto) {
+            let contador = 0;
+            texto = texto.toUpperCase();
+            let patron1 = "00";
+            let patron2 = "101";
+            let patron3 = "ABC";
+            let patron4 = "H0";
+
+            for (let i = 0; i <= texto.length - patron.length; i++) {
+                let coincide = true;
+                for (let j = 0; j < patron.length; j++) {
+                    if (texto.charAt(i + j) !== patron.charAt(j)) {
+                        coincide = false;
+                        break;
+                    }
+                }
+                if (coincide) {
+                    contador++;
+                }
+            }
+
+
+            contarPatron(patron1);
+            contarPatron(patron2);
+            contarPatron(patron3);
+            contarPatron(patron4);
+
+            return contador;
+        }
+
+        contador = numeroPatrones(cadena);
+        alert("El número de patrones encontrados es: " + contador);
+        console.timeEnd();
+    </script>
+</body>
+
+</html>

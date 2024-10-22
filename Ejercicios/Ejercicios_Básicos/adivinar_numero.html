@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de adivinanza</title>
+</head>
+
+<!-- 
+        Juego: adivinar un número
+        Contesta con "Es mayor" o "Es menor"
+        Cuenta los intentos
+        Math.ceil(Math.random()*100);
+    -->
+
+<body>
+    <script>
+        let numero = Math.ceil(Math.random() * 5);
+        let intentos = 0;
+        let respuesta = prompt("Adivina un número entre 1 y 5");
+
+        if(respuesta == numero){
+            window.alert("Lo has conseguido!");
+        }
+
+        window.alert(numero);
+    </script>
+</body>
+
+</html>
