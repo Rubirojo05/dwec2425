@@ -1,0 +1,64 @@
+<!-- 
+Solicitar una frase desde teclado, almacenar cada palabra en un elemento de un array y mostrar los siguientes datos:
+La primera palabra de la frase.
+La última palabra de la frase.
+El número de palabras de la frase.
+Pedir si quiere añadir más frases, por ejemplo si pongo "En un lugar de la mancha", me pregunta ¿ quieres añadir otra palabra?
+si le doy a que si, me pide otra palabra y la añade al array, si le doy a que no, me muestra el array con todas las palabras que he introducido.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays Ejercicio 2</title>
+</head>
+
+<body>
+    <div id="resultado"></div>
+    <script>
+        let palabras = [];
+        let resultado = "";
+
+        function solicitarFrase() {
+            return prompt("Introduce una frase: ");
+        }
+
+        function actualizarResultado() {
+            let longitud = palabras.length;
+            resultado = "<b>Primera palabra: </b>" + palabras[0] + "<br/>";
+            resultado += "<b>Última palabra: </b>" + palabras[longitud - 1] + "<br/>";
+            resultado += "<b>La longitud es </b>" + longitud + "<br/>";
+            resultado += "<b>Frase completa: </b>" + palabras.join(" ") + "<br/>";
+
+            // Crear una copia del array y ordenarla alfabéticamente
+            let palabrasOrdenadas = [...palabras].sort();
+            let palabrasInverso = [...palabras].reverse();
+            resultado += "<b>Frase ordenada alfabéticamente: </b>" + palabrasOrdenadas.join(" ") + "<br/>";
+            resultado += "<b>Frase en orden inverso: </b>" + palabrasInverso.join(" ") + "<br/>";
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+
+        function procesarFrase() {
+            let frase = solicitarFrase();
+            let nuevasPalabras = frase.split(" ");
+            palabras = palabras.concat(nuevasPalabras);
+            actualizarResultado();
+        }
+
+        function iniciarProceso() {
+            let respuesta = prompt("¿Quieres introducir otra frase? si/no");
+            while (respuesta.toLowerCase() === "si") {
+                procesarFrase();
+                respuesta = prompt("¿Quieres introducir otra frase? si/no");
+            }
+        }
+
+        // Inicia el proceso al cargar la página
+        iniciarProceso();
+    </script>
+</body>
+</body>
+
+</html>
