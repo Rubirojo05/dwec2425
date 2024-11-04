@@ -1,0 +1,71 @@
+<!-- 
+Hacer una función que ordene las notas de un array pasado como parámetro.
+Si se le pasa [4, 8, 3 10, 5] debe devolver [3, 4, 5, 8, 10]. Pruébalo en la consola.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Arrays de Clase</title>
+</head>
+
+<body>
+    <script>
+        function ordenarArray() {
+            let miarray = [4, 8, 3, 10, 5]; // Mi parametro miarray con mis numeros desordenados
+            console.log("Notas desordenadas: " + miarray); // Muestro mis notas desordenadas
+            miarray.sort((a, b) => a - b); // Ordeno mis notas de menor a mayor con sort, esto se hace con una función flecha que recibe dos parametros a y b y los resta, si el resultado es negativo, a va antes que b, si es positivo, b va antes que a
+            console.log("Notas ordenadas: " + miarray);
+        }
+
+        ordenarArray();
+
+        // Ahora el mismo ejercicio con objetos de persona que tengan nombre y edad 
+
+        function ordenarEdades() {
+            let personas = [
+                { nombre: "Juanjo", edad: 25 },
+                { nombre: "Amalia", edad: 23 },
+                { nombre: "Pedrito", edad: 30 },
+                { nombre: "Maria", edad: 22 }
+            ];
+
+            console.log("Personas desordenadas: ");
+            console.log(personas);
+
+            personas.sort((a, b) => a.edad - b.edad); // Ordeno por edad, de menor a mayor, si el resultado es negativo, a va antes que b, si es positivo, b va antes que a
+
+            console.log("Personas ordenadas por edad: ");
+            console.log(personas);
+        }
+
+        ordenarEdades();
+
+        // Ahora ordenar por nombre
+        function ordenarNombres() {
+        let personas1 = [
+            { nombre: "Juanjo", edad: 25 },
+            { nombre: "Amalia", edad: 23 },
+            { nombre: "Pedrito", edad: 30 },
+            { nombre: "Maria", edad: 22 }
+        ];
+
+        console.log("Personas desordenadas: ");
+        console.log(personas1);
+
+        // Ordenar por nombre, localCompare compara dos strings y devuelve un valor negativo si el primer string va antes que el segundo, 0 si son iguales y positivo si va después
+        personas1.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+        console.log("Personas ordenadas por nombre: ");
+        console.log(personas1);
+    }
+
+    ordenarNombres();
+
+    </script>
+</body>
+
+</html>

@@ -20,7 +20,25 @@ Modificación: el número de viajeros puede ser de más de un dígito. -->
 
 <body>
     <script>
-        
+        let Numeros = prompt("Introduce los números: ");
+
+        while (isNaN(Number(Numeros)) || Numeros.length % 2 != 0) {
+            if (isNaN(Number(Numeros))) {
+                Numeros = prompt("Solo carácteres numéricos.");
+            }
+
+            if (Numeros.length % 2 != 0) {
+                Numeros = prompt("La cantidad debe de ser par.")
+            }
+        }
+
+        let total = 0;
+
+        for (let i = Numeros.length - 1; i >= 0; i -= 2) {
+            total += Number(Numeros[i]);
+            total -= Number(Numeros[i - 1]);
+        }
+        console.log("Pasajeros al final: " + total);
     </script>
 </body>
 

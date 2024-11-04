@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Error</title>
+</head>
+<!-- Darle al usuario un mensaje de introducir un número de mes, si este número no está dentro del rango
+    salta un error de mes introducido no valido -->
+
+<body>
+    <script>
+        //funciones
+        function pregunta() {
+            return prompt("Introduce un número de mes");
+        }
+        function error() {
+            throw new Error("Número de mes no válido");
+        }
+        function success() {
+            console.log("Número de mes válido");
+        }
+
+        //Try Catch con las funciones
+        try {
+            let mes = pregunta();
+            mes = parseInt(mes);
+            if (mes >= 1 && mes <= 12) { //Comprueba si el mes introducido está entre el 1 y el 12
+                success(); //Mensaje de que está bien
+            } else {
+                error(); //Mensaje de que está mal
+            }
+        } catch (e) {
+            console.error(e.message);
+        }
+    </script>
+</body>
+
+</html>
