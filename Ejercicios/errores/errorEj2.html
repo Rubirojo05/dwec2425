@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 2 de Errores</title>
+</head>
+
+<body>
+    <p>Por favor, introduzca número entre 5 y 10</p>
+    <input id="demo" type="text">
+    <button type="button" onclick="miFuncion()">Intro</button>
+    <p id="p01"></p>
+    <script>
+        function miFuncion() {
+            const mensaje = document.getElementById("p01")
+            mensaje.innerHTML = ""
+            let x = document.getElementById("demo").value
+            try {
+                if (x.trim() == "") throw "datos vacíos"
+                if (isNaN(x)) throw "No es un número"
+                x = Number(x)
+                if (x < 5) throw "Número demasiado pequeño"
+                if (x > 10) throw "Número demasiado grande"
+            } catch (err) {
+                mensaje.innerHTML = "Lo introducido es: " + err
+            }
+        }
+    </script>
+</body>
+
+</html>

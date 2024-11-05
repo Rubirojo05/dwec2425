@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Cajero</title>
+</head>
+
+<body>
+    <h1>Cajero automático</h1>
+    <p>Introduce la cantidad de dinero: </p>
+    <input id="demo" type="text"> €
+    <br><br>
+    <button type="button" onclick="ingresarCantidad()">Ingresar</button>
+    <button type="button" onclick="retirarCantidad()">Retirar</button>
+    <p id="resultado"></p>
+
+    <script>
+        let cantidad = 0;
+
+        function actualizarCantidad(operacion) {
+            const mensaje = document.getElementById("resultado");
+            mensaje.innerHTML = "";
+            try {
+                let num = Number(document.getElementById("demo").value);
+                if (isNaN(num)) throw "Por favor, introduce un número.";
+                if (num <= 0) throw "La cantidad debe ser mayor de cero.";
+                if (operacion === 'ingresar') {
+                    cantidad += num;
+                    mensaje.innerHTML = `Cantidad ingresada: ${num}. Saldo actual: ${cantidad}`;
+                } else if (operacion === 'retirar') {
+                    mensaje.innerHTML = (cantidad >= num) ?
+                        `Cantidad retirada: ${num}. Saldo actual: ${cantidad -= num}` :
+                        "Fondos insuficientes.";
+                }
+            } catch (error) {
+                mensaje.innerHTML = error;
+            }
+        }
+
+        function ingresarCantidad() {
+            actualizarCantidad('ingresar');
+        }
+
+        function retirarCantidad() {
+            actualizarCantidad('retirar');
+        }
+    </script>
+
+</body>
+
+</html>
