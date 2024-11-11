@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1 ventanas</title>
+</head>
+
+<body>
+    <p id="ventana">texto</p>
+    <script>
+        window.name = "Mi ventana";
+        var texto = "";
+        texto += "<br/>Nombre: " + window.name;
+        texto += "<br/>Ancho externo: " + window.outerWidth;
+        texto += "<br/>Alto externo: " + window.outerHeight;
+        texto += "<br/>Ancho interno: " + window.innerWidth;
+        texto += "<br/>Alto interno: " + window.innerHeight;
+        texto += "<br/>Scroll Horizontal: " + window.pageXOffset;
+        texto += "<br/>Scroll Vertical: " + window.pageYOffset;
+        texto += "<br/>Distancia desde la izquierda: " + window.screenX;
+        texto += "<br/>Distancia desde arriba: " + window.screenY;
+
+        document.getElementById("ventana").innerHTML = texto;
+
+        //Métodos de window
+
+        var miVentana
+        //open(<url>,<nombre>,<propiedades>)
+        function crearVentana() {
+            //miVentana=window.open("https://www.google.com")
+            miVentana = window.open("", "", "width=200,height=200")
+        }
+
+        //close()
+        function cerrarVentana() {
+            miVentana.close()
+        }
+
+        //redimensionar ventana (resizeTo(<ancho>,<alto>))
+        function redimensionarVentana() {
+            miVentana.resizeTo(500, 500)
+        }
+
+        //mover ventana (moveTo(<x>,<y>))
+        function moverVentana() {
+            miVentana.moveBy(800, 100)
+        }
+
+        //focus()
+        function enfocarVentana() {
+            miVentana.focus()
+        }
+
+        //print()
+        function imprimirVentana() {
+            miVentana.print()
+        }
+
+    </script>
+
+    <br><br><br>
+    <button onclick="crearVentana()">Crear Ventana</button>
+    <button onclick="cerrarVentana()">Cerrar Ventana</button>
+    <button onclick="redimensionarVentana()">Redimensionar Ventana</button>
+    <button onclick="moverVentana()">Mover Ventana</button>
+    <br><br><br>
+    <button onclick="enfocarVentana()">Enfocar Ventana</button>
+    <button onclick="imprimirVentana()">Imprimir Ventana</button>
+
+</body>
+
+</html>

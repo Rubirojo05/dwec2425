@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parámetro Include</title>
+</head>
+
+<body>
+    <!-- Realiza un script que muestre la posición de la primera vocal 
+     ( así como la propia vocal) de un texto introducido por teclado. -->
+    <h1><u>Parámetro Include</u></h1>
+    <p>(Comienza a contar desde la posición cero)</p>
+    <p id="textoIntroducido"></p>
+    <p id="noInclude"></p>
+    <p id="include"></p>
+    <script>
+        
+        
+        let texto = prompt("Introduce un texto: "); 
+
+        console.log(texto);
+        document.getElementById("textoIntroducido").innerHTML = "<b>Texto introducido: </b>" + texto;
+        //primero sin include
+        function primeraVocalNoInclude(){
+            let vocales = ["a", "e", "i", "o", "u"]; //vocales
+            let posicion = 0; //posición para que recorra el array desde el 0
+            let tamañoTexto = texto.length;
+            for (let i = 0; i < tamañoTexto; i++) { //Se recorre cada carácter en el texto introducido, desde la posición 0 hasta el largo del texto.  
+                if (vocales.indexOf(texto.charAt(i).toLowerCase()) != -1) { //convierte los carácteres a minúscula
+                    //Busco el carácter en el array vocales. Si el carácter está en el array, devolverá el índice de esa vocal, y si no está, devolverá -1. Así, la condición != -1 comprueba si el carácter actual es una vocal.
+                    posicion = i;
+                    document.getElementById("noInclude").innerHTML = "La primera vocal se sitúa en la posición: " + posicion;
+                    break;
+                }
+            }
+        }
+
+        //segundo con el include
+        function primeraVocalInclude(){
+            let vocales = ["a", "e", "i", "o", "u"]; //vocales
+            let tamañoTexto = texto.length;
+            for (let i = 0; i < tamañoTexto; i++) { //Se recorre cada carácter en el texto introducido, desde la posición 0 hasta el largo del texto.  
+                if (vocales.includes(texto.charAt(i).toLowerCase())) { //convierte los carácteres a minúscula
+                    //Busco el carácter en el array vocales. Si el carácter está en el array, devolverá true, y si no está, devolverá false. Así, la condición comprueba si el carácter actual es una vocal.
+                    posicion = i;
+                    document.getElementById("include").innerHTML = "La primera vocal se sitúa en la posición(include): " + posicion
+                    break;
+                }
+            }
+        }
+
+        primeraVocalNoInclude();
+        primeraVocalInclude();
+        
+    </script>
+</body>
+
+</html>

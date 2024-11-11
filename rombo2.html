@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rombo 2.0</title>
+</head>
+
+<body>
+
+    <div id="rombo"></div>
+
+    <script>
+
+        const rombo = document.getElementById('rombo');
+        const altura = Number(prompt("Escribe la altura del rombo (número de filas):")); // Altura del rombo (número de líneas)
+        const caracter = prompt("Escribe el carácter utilizado en el rombo:");
+        const espacio = '&nbsp&nbsp';
+
+        // Parte superior del rombo
+        for (let fila = 1; fila <= altura; fila++) {
+            let linea = '';
+            // Agregar espacios en blanco
+            for (let esp = 1; esp <= altura - fila; esp++) {
+            linea += espacio; // Espacio en blanco
+            }
+            // Agregar caracteres
+            for (let ast = 1; ast <= 2 * fila - 1; ast++) {
+            if (ast === 1 || ast === 2 * fila - 1) {
+                linea += caracter; // Borde del rombo
+            } else {
+                linea += espacio; // Espacio interior
+            }
+            }
+            rombo.innerHTML += linea + '<br>'; // Agregar la línea al div
+        }
+
+        // Parte de abajo del rombo
+        for (let fila = altura - 1; fila >= 1; fila--) {
+            let linea = '';
+            // Agregar espacios en blanco
+            for (let esp = 1; esp <= altura - fila; esp++) {
+            linea += espacio;
+            }
+            // Agregar caracteres
+            for (let ast = 1; ast <= (2 * fila - 1); ast++) {
+            if (ast === 1 || ast === 2 * fila - 1) {
+                linea += caracter; // Borde del rombo
+            } else {
+                linea += espacio; // Espacio interior
+            }
+            }
+            rombo.innerHTML += linea + '<br>'; // Agregar la línea al div
+        }
+    </script>
+</body>
+
+</html>
