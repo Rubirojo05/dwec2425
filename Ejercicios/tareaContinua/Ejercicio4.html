@@ -40,35 +40,31 @@
             correo: "risus.Quisque@urna.ca"
         });
 
-        while (true) {
-            //Damos a elegir al usuario que quiere hacer con la lista
-            var opcion = prompt("Elige una opción: primero, último, nuevo, salir");
+        //Damos a elegir al usuario que quiere hacer con la lista
+        var opcion = prompt("Elige una opción: primero, último, nuevo");
 
-            //Si la opción es primero, mostramos el primer contacto
-            if (opcion === "primero") {
-                console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
-                //Si la opción es último, mostramos el último contacto
-            } else if (opcion === "ultimo") {
-                console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
-                //Si la opción es nuevo, añadimos un nuevo contacto
-            } else if (opcion === "nuevo") {
-                var nuevoContacto = {
-                    nombre: prompt("Introduce el nombre del contacto: "),
-                    telefono: prompt("Introduce el telefono del contacto: "),
-                    correo: prompt("Introduce el correo del nuevo contacto: ")
-                };
-                //Verificamos si el usuario ha introducido todos los datos necesarios
-                if (nuevoContacto.nombre && nuevoContacto.telefono && nuevoContacto.correo) {
-                    contactos.push(nuevoContacto);
-                    console.log("Nuevo contacto agregado: " + nuevoContacto.nombre + " / " + nuevoContacto.telefono + " / " + nuevoContacto.correo);
-                } else {
-                    console.log("Faltan datos. No se ha agregado el contacto.");
-                }
-            } else if (opcion === "salir") {
-                break;
+        //Si la opción es primero, mostramos el primer contacto
+        if (opcion === "primero") {
+            console.log("Primer contacto: " + contactos[0].nombre + " / " + contactos[0].telefono + " / " + contactos[0].correo);
+            //Si la opción es último, mostramos el último contacto
+        } else if (opcion === "ultimo") {
+            console.log("Último contacto: " + contactos[contactos.length - 1].nombre + " / " + contactos[contactos.length - 1].telefono + " / " + contactos[contactos.length - 1].correo);
+            //Si la opción es nuevo, añadimos un nuevo contacto
+        } else if (opcion === "nuevo") {
+            var nuevoContacto = {
+                nombre: prompt("Introduce el nombre del contacto: "),
+                telefono: prompt("Introduce el telefono del contacto: "),
+                correo: prompt("Introduce el correo del nuevo contacto: ")
+            };
+            //Verificamos si el usuario ha introducido todos los datos necesarios
+            if (nuevoContacto.nombre && nuevoContacto.telefono && nuevoContacto.correo) {
+                contactos.push(nuevoContacto);
+                console.log("Nuevo contacto agregado: " + nuevoContacto.nombre + " / " + nuevoContacto.telefono + " / " + nuevoContacto.correo);
             } else {
-                console.log("Opción no válida.");
+                console.log("Faltan datos. No se ha agregado el contacto.");
             }
+        } else {
+            console.log("Opción no válida.");
         }
     </script>
 </body>
