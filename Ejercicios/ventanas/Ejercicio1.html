@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio ventana 1</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        Ejercicio 1:
+            - Abrir una nueva ventana de dimensiones 500x200px en la posición (100,200)
+            - Escribir en ella  (con document.write) un titulo H1 que diga "Hola"
+            - Desplazarla 300px hacia abajo y 100 a la izquierda
+            -Cerrarla
+        */
+        // Abrir una nueva ventana de dimensiones 500x200px en la posición (100,200)
+        let nuevaVentana = window.open("", "", "width=500,height=200,top=200,left=100");
+
+        // Escribir Hola
+        nuevaVentana.document.write("<h1>Hola</h1>");
+
+        // Desplazarla 300px hacia abajo y 100 a la izquierda
+        nuevaVentana.moveBy(-100, 300);
+
+        /* 
+        Ejercicio 2
+            Hacer que a los 2 segundos de abrir la pagina se abra un popup:
+            - con un mensaje de bievenida
+            - con un boton cerrar que permita al usuario cerrarla
+            - con el tamaño justo para visualizar el mensaje sin barras de scroll, ni de
+            herramientas, ni de dirección... unicamente el mensaje y el botón
+        */
+
+        setTimeout(() => {
+            let popup = window.open("", "", "width=300,height=200,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,copyhistory=no");
+            popup.document.write("<h1>Bienvenido</h1>");
+            popup.document.write("<button onclick='window.close()'>Cerrar</button>");
+        }, 2000);
+
+
+
+    </script>
+</body>
+
+</html>

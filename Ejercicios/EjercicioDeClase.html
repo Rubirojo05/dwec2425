@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirámide Invertida</title>
+</head>
+<body>
+    <p id="frase" align="center"></p>
+    <script>
+        /*
+        Haz un programa en JavaScript que dibuje una pirámide invertida utilizando los números del 1 
+        al número que indique el usuario (máximo 50), de tal forma que la primera línea contenga tantos 
+        números repetidos como el número introducido y vaya disminuyendo en una unidad en cada 
+        salto de línea. Las cifras estarán centradas en la pantalla 
+        */
+        
+        //function usuario
+        function usuario() {
+            let texto;
+            do {
+                texto = Number(prompt("Introduce un número entre 1 y 50"));
+            } while (isNaN(texto) || texto < 1 || texto > 50);
+            console.log("Texto introducido por el usuario: " + texto);
+            return texto;
+        }
+        
+        //Creación de la variable.
+        let numero = usuario();
+        let piramide = "";
+        
+        // Generar la pirámide invertida
+        for (let i = numero; i >= 1; i--) {
+            let linea = "";
+            for (let j = 0; j < i; j++) {
+                linea += i + " ";
+            }
+            piramide += linea.trim() + "\n";
+        }
+        
+        document.getElementById("frase").innerText = piramide;
+    </script>
+</body>
+</html>

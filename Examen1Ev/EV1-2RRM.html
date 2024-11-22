@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 Examen</title>
+</head>
+
+<body>
+    <h1>Rubén Rojo Moreno, día 12/11/2024</h1>
+    <p id="piramide" align="center"></p>
+    <script>
+        /*
+        Haz un programa en JavaScript que dibuje una pirámide invertida utilizando los números del 1 al número que indique el usuario (máximo 50), de tal forma que la primera línea contenga tantos números repetidos como el número introducido y vaya disminuyendo en una unidad en cada salto de línea. Las cifras estarán centradas en la pantalla en la medida de lo posible.
+        Simula el resultado si el número indicado es 22 y añade una captura del resultado obtenido por pantalla.
+        */
+
+        //funcion de introducir número del 1 al 50
+        function numeroIntroducido() {
+            let peticion;
+            do {
+                peticion = Number(prompt("Introduce un número entre 1 y 50")); //Mensaje de petición de número
+            } while (
+                isNaN(peticion) || peticion < 1 || peticion > 50 //Hasta que no se meta un número entre 1 y 50 no para de salir el mensaje. (Control de error)
+            );
+            //console.log("Texto introducido por el usuario: " + peticion); Verifico si me ha pillado el número
+            return peticion;
+        }
+
+        //Creación de la variable.
+        let numero = numeroIntroducido();
+        let piramide = "";
+
+        // Generar la pirámide invertida
+        for (let i = numero; i >= 1; i--) {
+            //Agrego los espacios
+            let linea = "";
+            for (let j = 0; j < i; j++) {
+                //Agrego los números
+                linea += i + " ";
+            }
+            piramide += linea.trim() + "\n";
+        }
+
+        //Imprimo la figura de la pirámide en el párrafo del body con el ID de pirámide
+        document.getElementById("piramide").innerText = piramide;
+    </script>
+</body>
+
+</html>

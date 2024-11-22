@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 con Try Catch</title>
+</head>
+
+<body>
+    <script>
+        const PUNTOS_CARDINALES = ["N", "S", "E", "O"];
+
+        //control incial de errores
+
+        do {
+            
+            alert("Por favor, introduzca una cantidad entre 6 y 16 minutos");
+            var minutos = parseInt(prompt("¿De cuántos minutos dispone?"));
+        } while (
+            isNaN(minutos) || minutos == null || minutos < 6 || minutos > 16 || minutos % 2 != 0
+        );
+
+        //Comprobación de validez del paseo para volver a tiempo
+        
+    </script>
+</body>
+
+</html>

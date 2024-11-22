@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+        function generarCaminata(minutos) {
+            // Validar que los minutos estén dentro del rango permitido
+            if (minutos < 6 || minutos > 16 || minutos % 2 !== 0) {
+                throw new Error("El número de minutos debe ser un valor par entre 6 y 16.");
+            }
+            
+            // Coordenadas iniciales para asegurarnos de que volvemos al inicio
+            let x = 0;  // Eje este-oeste
+            let y = 0;  // Eje norte-sur
+            const direcciones = [];
+            const opciones = ['n', 's', 'e', 'o'];
+        
+            // Función auxiliar para agregar una dirección y ajustar coordenadas
+            function agregarDireccion(dir) {
+                direcciones.push(dir);
+                if (dir === 'n') y++;
+                if (dir === 's') y--;
+                if (dir === 'e') x++;
+                if (dir === 'o') x--;
+            }
+        
+            // Generar caminata de forma balanceada
+            for (let i = 0; i < minutos; i++) {
+                // Asegurarnos de que podemos balancear al final
+                let dir;
+                if (i === minutos - 1) {
+                    // Ultimo movimiento: debe balancear al inicio
+                    if (x > 0) dir = 'o';
+                    else if (x < 0) dir = 'e';
+                    else if (y > 0) dir = 's';
+                    else if (y < 0) dir = 'n';
+                } else {
+                    // Elegir una dirección aleatoria y controlada
+                    do {
+                        dir = opciones[Math.floor(Math.random() * opciones.length)];
+                    } while (
+                        (dir === 'n' && y + 1 > minutos / 2) ||
+                        (dir === 's' && y - 1 < -minutos / 2) ||
+                        (dir === 'e' && x + 1 > minutos / 2) ||
+                        (dir === 'o' && x - 1 < -minutos / 2)
+                    );
+                }
+                
+                agregarDireccion(dir);
+            }
+        
+            // Verificar si hemos vuelto al punto inicial
+            if (x === 0 && y === 0) {
+                return direcciones;
+            } else {
+                // En caso de error, intentar nuevamente
+                return generarCaminata(minutos);
+            }
+        }
+        
+        // Prueba de la función con 8 y 12 minutos
+        console.log("Caminata de 8 minutos:", generarCaminata(8).join(''));
+        console.log("Caminata de 12 minutos:", generarCaminata(12).join(''));
+    </script>
+    </body>
+</html>

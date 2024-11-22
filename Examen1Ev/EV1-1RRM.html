@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 Examen</title>
+</head>
+
+<body>
+    <p id="paseoGenerado1"></p>
+    <script>
+
+        /* 
+        Crea una función tal que, proporcionándole el tiempo del que dispones en minutos, obtenga una cadena de letras (tantas como minutos dispongas) que te permitirá pasear y volver al punto inicial exactamente en los minutos introducidos.
+        (¡no quieres ni llegar temprano ni retrasarte!).
+        */
+
+        /*
+            Esto no funciona
+            function pedirMinutos(){
+            let minutos = Number(prompt("Introduce un número par entre el 8 y el 22: "));
+            return minutos;
+            } 
+            */
+
+        //Función de mi generadora de paseos
+        function generadoraDePaseos(minutos) {
+
+            // Controlo el error de que los minutos estén en el rango permitido
+            if (minutos < 8 || minutos > 22 || minutos % 2 !== 0) {
+                throw new Error("Introduce un número par entre el 8 y el 22"); //mensaje de error
+            }
+
+            // Declaro las coordenadas iniciales
+            const direcciones = []; //Declaro la matriz de mis direcciones
+            const opciones = ['n', 's', 'e', 'o']; //Declaro mis opciones (en este caso las opciones que tiene el usuario que puede elegir)
+            let x = 0;  // Eje vertical (de este a oeste)
+            let y = 0;  // Eje horizontal (de norte a sur)
+            
+
+
+            // Función que me será útil para dependiendo lo que el usuario eliga, ajustar mi dirección añadiendo a direcciones hacía a donde a decidido ir el usuario (opciones)
+            function agregarDireccion(dir) {
+                direcciones.push(dir);
+                if (dir === 'n') y++;
+                if (dir === 's') y--;
+                if (dir === 'e') x++;
+                if (dir === 'o') x--;
+            }
+
+            // Bucle para realizar nuestro paseo
+            for (let i = 0; i < minutos; i++) {
+                let dir;
+                // Si es la última iteración, ajusto la dirección para volver al punto inicial
+                if (i === minutos - 1) {
+                    if (x > 0) dir = 'o'; // Si x es positivo, moverse al oeste
+                    else if (x < 0) dir = 'e'; // Si x es negativo, moverse al este
+                    else if (y > 0) dir = 's'; // Si y es positivo, moverse al sur
+                    else if (y < 0) dir = 'n'; // Si y es negativo, moverse al norte
+                } else {
+                    // Elijo una dirección aleatoria que no sobrepase los límites permitidos que declaré antes
+                    do {
+                        dir = opciones[Math.floor(Math.random() * opciones.length)];
+                    } while (
+                        //Controlo los errores de los límites
+                        (dir === 'n' && y + 1 > minutos / 2) ||
+                        (dir === 's' && y - 1 < -minutos / 2) ||
+                        (dir === 'e' && x + 1 > minutos / 2) ||
+                        (dir === 'o' && x - 1 < -minutos / 2)
+                    );
+                }
+
+                // Agregar la dirección seleccionada
+                agregarDireccion(dir);
+            }
+
+            // Verificar si he vuelto al punto inicial
+            if (x === 0 && y === 0) {
+                return direcciones; // Si estoy en el punto inicial, devuelvo las direcciones
+            } else {
+                // En caso de error, intento nuevamente
+                return generadoraDePaseos(minutos); // Intento generar el paseo nuevamente
+            }
+        }
+
+        // Prueba de la función con 22
+        document.getElementById("paseoGenerado1").innerHTML = generadoraDePaseos(22).join('');
+    </script>
+</body>
+
+</html>
