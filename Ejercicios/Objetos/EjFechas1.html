@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio fechas 1</title>
+</head>
+
+<body>
+    <!-- Obtener los días que han pasado entre hoy y otra fecha fija
+        Pasar a Milisegundos, hacer la operación y "dividiendo sucesivamente"
+        obtener fecha en formato legible
+        toDateString() convierte variable de tipo fecha a String
+        var fecha = new Date();
+        var cadena = fecha.toDateString(); [tambien fecha.toString] -->
+
+        <script>
+            hoy = new Date();
+            var fechaFija = new Date(2020, 0, 1);
+            var milisegundos = hoy - fechaFija;
+            var segundos = milisegundos / 1000;
+            var minutos = segundos / 60;
+            var horas = minutos / 60;
+            var dias = horas / 24;
+            document.write("Han pasado " + Math.floor(dias) + " días desde el 1 de enero de 2020");
+            //toDateString() convierte variable de tipo fecha a String
+            var cadena = hoy.toDateString();
+            document.write("<br> Hoy es: " + cadena);
+            //toUTCString()
+            var UTCString = hoy.toUTCString();
+            document.write("<br> Hoy con UTCString() es: " + UTCString);
+        </script>
+</body>
+
+</html>

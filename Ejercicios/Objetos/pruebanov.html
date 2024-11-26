@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre Objeto Prueba 1</title>
+</head>
+
+<body>
+    <script>
+        function Persona(nom, ape, an) {
+            this.nom = nom;
+            this.ape = ape;
+            this.an = an;
+            this.nombreCompleto = function () {
+                return this.nom + " " + this.ape;
+            }
+        }
+
+        var ana = new Persona("Ana", "García", 1990);
+        var jose = new Persona("Jose", "López", 1992);
+
+        ana.nacionalidad = "Española";
+        ana.nacimiento = function () {
+            return "Nació en el año: " + this.an;
+        }
+
+        alert(ana.nacionalidad);
+        alert(jose.nacionalidad);
+        alert(ana.nacimiento());
+        /* alert(jose.nacimiento()); */
+
+        Persona.prototype.boda = 2020;
+        Persona.prototype.fechaBoda = function () {
+            return "Se casó en el año: " + this.boda;
+        }
+
+        var juan = new Persona("Juan", "Sanchez", 1994);
+        alert(juan.nom);
+        alert(juan.fechaBoda());
+        alert(Persona.prototype);
+        console.log(Persona.prototype);
+
+    </script>
+</body>
+
+</html>
