@@ -17,7 +17,7 @@
     var reloj = document.getElementById("reloj"); //Obtener el elemento del reloj
     var arrancarBtn = document.getElementById("arrancarBtn"); //Obtener el botón de arrancar
     var pararBtn = document.getElementById("pararBtn"); //Obtener el botón de parar
-    var interval;
+    var intervalo;
 
     function actualizarReloj() {
         var fecha = new Date(); //Obtener la fecha actual
@@ -29,13 +29,13 @@
     }
 
     function arrancar() {
-        interval = setInterval(actualizarReloj, 1000);  //Se actualiza el reloj cada segundo
+        intervalo = setInterval(actualizarReloj, 1000);  //Se actualiza el reloj cada segundo
         arrancarBtn.disabled = true; //Deshabilitar el botón de arrancar
         pararBtn.disabled = false; //Habilitar el botón de parar
     }
 
     function parar() {
-        clearInterval(interval); //Parar el reloj
+        clearInterval(intervalo); //Parar el reloj
         arrancarBtn.disabled = false; //Habilitar el botón de arrancar
         pararBtn.disabled = true;  //Deshabilitar el botón de parar
     }
