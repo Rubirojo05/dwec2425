@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Reloj</title>
+</head>
+
+<body>
+    <h1>Reloj</h1>
+    <h2 id="reloj">Dale al botón de arrancar para ver la hora actual</h2>
+    <button id="arrancarBtn" onclick="arrancar()">Arrancar</button>
+    <button id="pararBtn" onclick="parar()" disabled>Parar</button>
+</body>
+<script>
+    var reloj = document.getElementById("reloj"); //Obtener el elemento del reloj
+    var arrancarBtn = document.getElementById("arrancarBtn"); //Obtener el botón de arrancar
+    var pararBtn = document.getElementById("pararBtn"); //Obtener el botón de parar
+    var interval;
+
+    function actualizarReloj() {
+        var fecha = new Date(); //Obtener la fecha actual
+        var horas = fecha.getHours(); //Obtener las horas
+        var minutos = fecha.getMinutes(); //Obtener los minutos
+        var segundos = fecha.getSeconds(); //Obtener los segundos
+        segundos = segundos < 10 ? "0" + segundos : segundos; //Funcion ternaria para agregar un 0 a los segundos si son menores a 10
+        reloj.innerHTML = horas + ":" + minutos + ":" + segundos; //Mostrar la hora en el reloj
+    }
+
+    function arrancar() {
+        interval = setInterval(actualizarReloj, 1000);  //Se actualiza el reloj cada segundo
+        arrancarBtn.disabled = true; //Deshabilitar el botón de arrancar
+        pararBtn.disabled = false; //Habilitar el botón de parar
+    }
+
+    function parar() {
+        clearInterval(interval); //Parar el reloj
+        arrancarBtn.disabled = false; //Habilitar el botón de arrancar
+        pararBtn.disabled = true;  //Deshabilitar el botón de parar
+    }
+</script>
+
+</html>
