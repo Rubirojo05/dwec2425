@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Nombres 2</title>
+</head>
+
+<body>
+
+</body>
+    <script>
+        /* Se pide:
+
+            Filtrar los usuarios mayores de edad (mayores o igual a 18 años).
+            Calcular el promedio de edades de los usuarios filtrados.
+            Encontrar al usuario más joven de entre los filtrados.
+            Obtener una lista de nombres de usuarios que empiezan con la letra 'A'.
+            Lista de usuarios:
+            const usuarios = [
+            { id: 1, nombre: 'Juan', edad: 25 },
+            { id: 2, nombre: 'María', edad: 30 },
+            { id: 3, nombre: 'Pedro', edad: 20 },
+            { id: 4, nombre: 'Ana', edad: 35 },
+            { id: 5, nombre: 'Luisa', edad: 22 },
+            { id: 6, nombre: 'Alberto', edad: 19 },
+            ]; */
+
+        const usuarios = [
+            { id: 1, nombre: 'Juan', edad: 25 },
+            { id: 2, nombre: 'María', edad: 30 },
+            { id: 3, nombre: 'Pedro', edad: 20 },
+            { id: 4, nombre: 'Ana', edad: 35 },
+            { id: 5, nombre: 'Luisa', edad: 22 },
+            { id: 6, nombre: 'Alberto', edad: 19 },
+        ];
+
+        let mayoresDeEdad = usuarios.filter(usuario => usuario.edad >= 18); //Filtro los usuarios mayores de edad
+        console.log(mayoresDeEdad);
+
+        let promedioEdades = mayoresDeEdad.reduce((acumulador, usuario) => acumulador + usuario.edad, 0) / mayoresDeEdad.length; 
+        //Calculo el promedio de edades de los usuarios mayores de edad
+        console.log(promedioEdades);
+
+        let usuarioMasJoven = mayoresDeEdad.reduce((acumulador, usuario) => usuario.edad < acumulador.edad ? usuario : acumulador);
+        //Encuentro al usuario más joven de entre los usuarios mayores de edad
+        console.log(usuarioMasJoven);
+
+        let nombresConA = usuarios.filter(usuario => usuario.nombre[0] === 'A').map(usuario => usuario.nombre);
+        //Obtengo una lista de nombres de usuarios que empiezan con la letra 'A'
+        console.log(nombresConA);
+    </script>
+</html>
