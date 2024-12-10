@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios día 10/12/2024</title>
+</head>
+
+<body>
+    
+    <p id="contador"></p>
+</body>
+<script>
+    //Dado el array de los días de la semana, devolver los días de la semana que empiezan por M
+    let diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"]; //Array de los días de la semana
+    let diasConM = diasSemana.filter(dia => dia[0] === "M"); //Filtro los días que empiezan por M
+    console.log(diasConM); //Compruebo
+
+    //Realizar una cuenta atrás de 60 segundos a 0 y cuando llegue a 0 mostrar un alert con diasConM
+    let segundos = 60;
+    let contador = document.getElementById("contador");
+    let intervalo = setInterval(() => { //el setInterval se ejecuta cada 1000 milisegundos = 1 segundo
+        contador.innerHTML = `Cuenta atrás: ${segundos} segundos`; //Muestro el contador
+        segundos--; //Resto los segundos los segundos
+        if (segundos < 0) { //Si segundos es menor que 0
+            clearInterval(intervalo); //Paro el intervalo para que no siga contando
+            alert(`Días que empiezan por M: ${diasConM.join(", ")}`); //Muestro un alert con los días que empiezan por M
+        }
+    }, 1000); //Intervalo de 1000 milisegundos = 1 segundo
+</script>
+
+</html>

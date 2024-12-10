@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio nota media</title>
+</head>
+
+<body>
+    <script>
+        let puntos1 = [1, 2, 3, 4, 5, 6, 7, 8];
+        let puntos2 = [1, 2, 3, 8, 9, 0, 43, 45, 65];
+        let puntos3 = [17, 32, 87, 45];
+
+        /* Calcular la media aritmética de estos números, en dos casos.
+            1 caso: No numeros repetidos
+            2 caso: Números repetidos
+            Puedo utilizar set, filter, size... */
+
+        let misNotas = new Set([...[...puntos1, ...puntos2, ...puntos3]]);
+        let notas1 = [...misNotas]; //Números sin repetir
+        console.log(notas1);
+        let notas2 = [...puntos1, ...puntos2, ...puntos3]; //Números repetidos
+        console.log(notas2);
+        //Media con números sin repetir
+        let media1 = notas1.reduce((acumulador, nota) => acumulador + nota) / notas1.length; 
+        //Acumulador es la suma de los elementos del array y nota es cada elemento del array
+        //Media con números con repetidos
+        let media2 = notas2.reduce((acumulador, nota) => acumulador + nota) / notas2.length;
+        //Muestro resultados
+        console.log("Media con números sin repetir: " + media1);
+        console.log("Media con números repetidos: " + media2);
+
+        //Dado el array de los días de la semana, devolver los días de la semana que empiezan por M.
+        let semana = [Lunes, Martes, Miercoles, Jueves, Viernes];
+
+
+    </script>
+</body>
+
+</html>
