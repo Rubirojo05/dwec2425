@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 tareaContinua</title>
+</head>
+
+<body>
+    <script>
+        // Lista inicial de contactos
+        var contactos = [
+            { nombre: "Maxwell Wright", telefono: "(0191) 719 6495", correo: "Curabitur.egestas.nunc@nonnummyac.co.uk" },
+            { nombre: "Raja Villareal", telefono: "0866 398 2895", correo: "posuere.vulputate@sed.com" },
+            { nombre: "Helen Richards", telefono: "0800 1111", correo: "libero@convallis.edu" }
+        ];
+        contactos.push({ nombre: "Maisie Haley", telefono: "0913 531 3030", correo: "risus.Quisque@urna.ca" });
+
+        // Función para mostrar un contacto por índice
+        function showContact(contactos, index) {
+            if (!(contactos instanceof Array)) {
+                console.log("El primer argumento debe ser un array de contactos.");
+                return;
+            }
+
+            if (index >= 0 && index < contactos.length) {
+                const contacto = contactos[index];
+                console.log(`${index === 0 ? "Primer" : "Último"} contacto: ${contacto.nombre} / ${contacto.telefono} / ${contacto.correo}`);
+            } else {
+                console.log("Índice fuera de rango.");
+            }
+        }
+
+        // Función para mostrar todos los contactos
+        function showAllContacts(contactos) {
+            if (!(contactos instanceof Array)) {
+                console.log("El argumento debe ser un array de contactos.");
+                return;
+            }
+
+            if (contactos.length > 0) {
+                console.log("Lista de contactos:");
+                contactos.forEach(contacto => {
+                    console.log(`${contacto.nombre} / ${contacto.telefono} / ${contacto.correo}`);
+                });
+            } else {
+                console.log("No hay contactos en la lista.");
+            }
+        }
+
+        // Función para añadir un nuevo contacto
+        function addNewContact(contactos, nombre, telefono, correo) {
+            if (!(contactos instanceof Array)) {
+                console.log("El primer argumento debe ser un array de contactos.");
+                return;
+            }
+
+            if (nombre && telefono && correo) {
+                contactos.push({ nombre, telefono, correo });
+                console.log(`Nuevo contacto agregado: ${nombre} / ${telefono} / ${correo}`);
+            } else {
+                console.log("Faltan datos. No se ha agregado el contacto.");
+            }
+        }
+
+        // Función para ordenar contactos
+        function sortContacts(contactos, criterio) {
+            if (!(contactos instanceof Array)) {
+                console.log("El primer argumento debe ser un array de contactos.");
+                return;
+            }
+
+            if (criterio === "nombre" || criterio === "telefono" || criterio === "correo") {
+                contactos.sort((a, b) => a[criterio].localeCompare(b[criterio]));
+                console.log(`Contactos ordenados por ${criterio}.`);
+                showAllContacts(contactos);
+            } else {
+                console.log("Criterio no válido. Usa 'nombre', 'telefono' o 'correo'.");
+            }
+        }
+
+        // Programa principal
+        while (true) {
+            var opcion = prompt("Elige una opción: primero, último, todos, nuevo, sort, salir");
+
+            if (opcion === "primero") {
+                showContact(contactos, 0);
+            } else if (opcion === "ultimo") {
+                showContact(contactos, contactos.length - 1);
+            } else if (opcion === "todos") {
+                showAllContacts(contactos);
+            } else if (opcion === "nuevo") {
+                var nombre = prompt("Introduce el nombre del contacto: ");
+                var telefono = prompt("Introduce el teléfono del contacto: ");
+                var correo = prompt("Introduce el correo del nuevo contacto: ");
+                addNewContact(contactos, nombre, telefono, correo);
+            } else if (opcion === "sort") {
+                var criterio = prompt("¿Por qué criterio deseas ordenar? (nombre, telefono, correo)");
+                sortContacts(contactos, criterio);
+            } else if (opcion === "salir") {
+                console.log("Saliendo del programa.");
+                break;
+            } else {
+                console.log("Opción no válida.");
+            }
+        }
+    </script>
+</body>
+
+</html>
