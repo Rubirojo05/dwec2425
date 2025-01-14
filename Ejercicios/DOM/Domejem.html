@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 13/01/2025</title>
+    <style>
+        .miClase {
+            color: green;
+        }
+    </style>
+    <script>
+        //window.onload=inicio();
+        window.addEventListener("load", inicio);
+        function inicio() {
+            document.getElementById("cambiarTextos").addEventListener("click", cambiarTextos);
+            document.getElementById("cambiarClases").addEventListener("click", cambiarClases);
+            document.getElementById("quitarClases").addEventListener("click", quitarClases);
+            document.getElementById("escribirTextos").addEventListener("click", escribirTextos);
+        }
+
+        function cambiarTextos() {
+            document.getElementById("parrafo1").innerHTML = "Primero cambiado";   //Id
+            document.getElementsByTagName("p")[1].innerHTML = "Segundo cambiado"; //TagName
+            document.getElementsByClassName("miClase")[0].innerHTML = "Tercero cambiado"; //ClassName
+        }
+
+        /* var principal = document.getElementById("main");
+        var parrafo1 = principal.innerHTML("parrafo1"); */
+        //document.querySelector;
+
+        function cambiarClases() {
+            document.getElementById("parrafo1").setAttribute("class", "miClase"); //setAttribute
+            document.getElementById("parrafo2").className = "miClase"; //className
+            document.getElementById("parrafo3").className = "miClase"; //className
+        }
+
+        function quitarClases() {
+            var parrafos = document.getElementsByTagName("p");
+            for (var i = 0; i < parrafos.length; i++) {
+                parrafos[i].className = "";
+            }
+        }
+
+        function escribirTextos() {
+            document.getElementById("parrafo1").innerHTML= prompt("Escribe el texto: ");
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="main">
+        <p id="parrafo1">Este es el primero</p>
+        <p id="parrafo2">Este es el segundo</p>
+        <p id="parrafo3" class="miClase">Este es el tercero</p>
+    </div>
+    <br>
+    <button id="cambiarTextos">Cambiar texto de parrafo</button>
+    <button id="cambiarClases">Cambiar clase de parrafo</button>
+    <button id="quitarClases">Quitar clases</button>
+    <button id="ponerPuntos">Poner puntos finales</button>
+    <button id="escribirTextos">Escribir textos</button>
+
+</body>
+
+</html>

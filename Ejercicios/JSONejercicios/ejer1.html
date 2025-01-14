@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba JSON 1</title>
+</head>
+
+<body>
+    <script>
+        const json = `{
+        "name": "Manuel",
+        "life": 49
+        }`;
+
+        const user = JSON.parse(json);
+
+        user.name;
+        user.life;
+
+        const usuario = {
+            name: "Manuel",
+            life: 49,
+            talk: function(){
+                return "Hola!";
+            },
+            power: 10,
+        }; //JSON no hace funciones
+        
+        JSON.stringify(usuario); //{"name": "Manuel", "life": 49}
+        JSON.stringify(usuario, ["name", "power"]); //{"name": "Manuel", "power": 10}
+        JSON.stringify(usuario), []; // nada
+        JSON.stringify(usuario, null);
+
+    </script>
+</body>
+
+</html>

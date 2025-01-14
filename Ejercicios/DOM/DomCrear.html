@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de elementos DOM</title>
+    <style>
+        .miClase {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = inicio;
+
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("reemplazarTexto").addEventListener("click", reemplazarTexto);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+        }
+
+        function crearParrafo() {
+            var miParrafo = document.createElement("p");
+            var texto = document.createTextNode(document.getElementById("texto").value);
+            miParrafo.appendChild(texto);
+            miParrafo.setAttribute("class", "miClase");
+            var cont = document.getElementById("div1");
+            cont.appendChild(miParrafo)
+        }
+
+        function crearImagen() {
+            var miImagen = document.createElement("img");
+            var imagen = prompt("Escribe la URL de tu imagen")
+            miImagen.setAttribute("src", imagen);
+            var cont = document.getElementById("div1");
+            cont.appendChild(miImagen);
+        }
+
+        function reemplazarTexto() {
+            var cont = document.getElementById("div1");
+            if (cont.firstChild) {
+                var nuevoTexto = document.createTextNode("vacío");
+                cont.setAttribute("class", "miClase");
+                cont.replaceChild(nuevoTexto, cont.firstChild);
+            }
+        }
+
+        function borrarPrimero() {
+            var cont = document.getElementById("div1");
+            if (cont.firstChild) {
+                cont.removeChild(cont.firstChild);
+            }
+        }
+
+        function borrarUltimo() {
+            var cont = document.getElementById("div1");
+            if (cont.lastChild) {
+                cont.removeChild(cont.lastChild);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <br>
+    <textarea name="texto" id="texto"></textarea>
+    <br>
+    <button id="crearParrafo">Crear Párrafo</button>
+    <button id="crearImagen">Crear imagen</button>
+    <button id="reemplazarTexto">Reemplazar texto</button>
+    <button id="borrarPrimero">Borrar primero</button>
+    <button id="borrarUltimo">Borrar último</button>
+
+</body>
+
+</html>
