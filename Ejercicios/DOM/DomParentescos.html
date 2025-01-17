@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Parentescos DOM</title>
+</head>
+
+<body>
+    <div id="norte">
+        <h2>Galicia</h2>
+        <ul id="lista">
+            <li>A coruña</li>
+            <li> Lugo</li>
+            <li> Orense</li>
+            <li> Pontevedra</li>
+        </ul>
+    </div>
+    <div id="sur">
+        <h2>Canarias</h2>
+        <ul id="lista">
+            <li> Santa Cruz de Tenerife</li>
+            <li> Las Palmas</li>
+        </ul>
+    </div>
+
+    <div id="texto"></div>
+</body>
+
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        for (var i = 0; i < document.getElementsByTagName("h2").length; i++) { //Recorremos todos los h2
+            document.getElementsByTagName("h2")[i].addEventListener("click", recorrerAdelante); //Añadimos el evento click a cada h2
+        }
+    }
+
+    function recorrerAdelante(e) {
+        var h2 = e.target; //Obtenemos el h2 que ha sido clicado
+        var texto = ""; //Variable que contendrá el texto a mostrar
+
+        texto += "Has elegido: " + h2.textContent; //Añadimos el texto del h2 clicado 
+        var padre = h2.parentElement; //Obtenemos el padre del h2 clicado
+        texto += " que está situado en " + padre.id + "<br>"; //Añadimos el id del padre
+
+        var ul = h2.nextElementSibling; //Obtenemos el siguiente hermano del h2 clicado
+        texto += "El número de provincias es: " + ul.children.length + "<br>"; //Añadimos el número de hijos del ul
+
+        var hijo = ul.firstElementChild; //Obtenemos el primer hijo del ul
+        while (hijo != null) { //Recorremos todos los hijos del ul
+            texto += hijo.textContent + "<br>"; //Añadimos el texto de cada hijo
+            hijo = hijo.nextElementSibling; //Pasamos al siguiente hijo
+        }
+
+        document.getElementById("texto").innerHTML = texto; //Mostramos el texto en el div
+    }
+</script>
+
+</html>
