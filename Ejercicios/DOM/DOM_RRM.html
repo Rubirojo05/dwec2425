@@ -63,11 +63,18 @@
         document.getElementById("texto").innerHTML = texto; //Mostramos el texto en el div
     }
 
+    let puntoAdded = false;
     function agregarPunto() {
-        var listas = document.querySelectorAll("ul#lista li");  //Seleccionamos todos los elementos li dentro de los elementos ul con id lista
-        listas.forEach(function(li) { //Recorremos todos los elementos li
-            li.textContent += "."; //Añadimos un punto al final de cada li
-        });
+        let bloque = document.getElementById("div");
+        let parrafos = bloque.children;
+        if (!puntoAdded) {
+            for (let i = 0; i < parrafos.length; i++) {
+                if (parrafos[i].tagName == "p") {
+                    parrafos[i].innerHTML += ".";
+                }
+            }
+        }
+        puntoAdded = true;
     }
 </script>
 
