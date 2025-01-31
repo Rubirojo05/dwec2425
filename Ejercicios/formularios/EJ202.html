@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        .centrar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .colores {
+            display: grid;
+            place-items: center;
+            margin-right: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centrar">
+        <form id="formulario" method="post">
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <!--NOMBRE-->
+                <label for="nombre">Introduce tu nombre</label>
+                <input type="text" id="nombre" name="nombre" /><br><br>
+                <!--NIF-->
+                <label for="nif">Introduce tu NIF</label>
+                <input type="" id="nif" name="nif" /><br><br>
+                <!--SELECCIONAR FECHA-->
+                <label>Selecciona un curso académico</label>
+                <select>
+                    <option>2020 - 2021</option>
+                    <option>2021 - 2022</option>
+                    <option>2022 - 2023</option>
+                    <option>2023 - 2024</option>
+                    <option id="nuevoCurso">Nuevo curso</option>
+                </select>
+
+                <br /><br />
+                <!--FECHA MATRICULACION-->
+                <label for="fecha">Introduce la fecha de matriculacion: </label><br />
+                <input type="number" id="dia" name="fecha" placeholder="Día" />
+                <input type="number" id="mes" name="fecha" placeholder="Mes" />
+                <input type="number" id="año" name="fecha" placeholder="Año" /><br /><br />
+
+                <!--MENSAJE-->
+                <label for="mensaje">Mensaje</label><br>
+                <textarea type="text" cols="70" rows="10" id="mensaje" name="mensaje"></textarea><br /><br />
+            </fieldset>
+            <!--COLOR-->
+            <br>
+            <div class="colores">
+                <label>Elige un color:</label><br />
+                <input type="radio" id="rojo" name="colores" />Rojo<br />
+                <input type="radio" id="verde" name="colores" />Verde<br />
+                <input type="radio" id="azul" name="colores" />Azul<br />
+            </div>
+            <br /><br />
+
+            <!--SELECCIONA ASIGNATURA-->
+            <label>Selecciona una asignatura</label>
+            <select>
+                <option>DWES</option>
+                <option>DWEC</option>
+                <option>DIW</option>
+                <option>DAW</option>
+                <option>INGLÉS</option>
+                <option>EMMPRESAS</option>
+            </select>
+            <br /><br />
+            <!--SELECCIONA LOS DÍAS CON DISPONIBILIDAD-->
+            <div class="centrado">
+                <label>Selecciona los días con disponibilidad</label><br />
+                <input type="checkbox" id="lunes" name="dias" />Lunes<br />
+                <input type="checkbox" id="martes" name="dias" />Martes<br />
+                <input type="checkbox" id="miercoles" name="dias" />Miércoles<br />
+                <input type="checkbox" id="jueves" name="dias" />Jueves<br />
+                <input type="checkbox" id="viernes" name="dias">Viernes<br />
+            </div>
+            <br /><br />
+            <!--SELECCIONA EL DÍA PREFERENTE-->
+            <label>Selecciona el día preferente</label>
+            <select>
+                <option>Lunes</option>
+                <option>Martes</option>
+                <option>Miércoles</option>
+                <option>Jueves</option>
+                <option>Viernes</option>
+            </select>
+            <br /><br />
+            <!--BOTONES-->
+            <button id="envio" type="submit" value="submit">Haz click para enviar la información</button>
+            <button id="comenzarNuevo" type="submit" value="submit">Comenzar a rellenar de nuevo</button>
+            <button id="sobreMi" type="submit" value="submit">Haz click sobre mí</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

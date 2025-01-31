@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+</head>
+
+<body>
+    <script>
+        if (typeof (Storage) !== "undefined") {
+            alert("El navegador soporta webStorage");
+            localStorage.setItem("nombre", "Juan");
+            localStorage.apellido = "Garcia";
+
+            alert(localStorage.getItem("nombre"));
+            alert(localStorage.apellido);
+
+            localStorage.removeItem("apellido");
+        }else{
+            alert("El navegador NO soporta WebStorage");
+        }
+    </script>
+</body>
+
+</html>
