@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UberEats</title>
+</head>
+
+<body>
+    <h1>UberEats</h1>
+    <br>
+    <br>
+    <div id="contenido">
+        <p>Pulsa el botón para realizar un pedido</p>
+        <button id="realizarPedido">Realizar Pedido</button>
+        <p id="mensaje"></p>
+    </div>
+</body>
+
+<script>
+    document.getElementById("realizarPedido").addEventListener("click", realizarPedido);
+
+    function realizarPedido() {
+        const mensajeParrafo = document.getElementById("mensaje");
+        mensajeParrafo.innerHTML = "Confirmando...";
+        console.log("Confirmando...");
+
+        const pedido = new Promise((resolve, reject) => {
+            let confirmacion = Math.random();
+            let confirmado = confirmacion < 0.8 ? true : false;
+
+            setTimeout(() => {
+                confirmado ? resolve("Confirmado ✅") : reject("No se pudo confirmar❌🚨");
+            }, 2000);
+        });
+
+        pedido
+            .then((mensaje) => {
+                mensajeParrafo.innerHTML = mensaje;
+                console.log(mensaje);
+                return new Promise((resolve) => {
+                    mensajeParrafo.innerHTML += "<br>Preparando...👨🏼‍🍳";
+                    console.log("Preparando...👨🏼‍🍳");
+                    setTimeout(() => {
+                        resolve("Comida preparada 🍔");
+                    }, 4000);
+                });
+            })
+            .then((mensajePreparacion) => {
+                mensajeParrafo.innerHTML += "<br>" + mensajePreparacion;
+                console.log(mensajePreparacion);
+                return new Promise((resolve) => {
+                    mensajeParrafo.innerHTML += "<br>Enviando...🚴‍♂️";
+                    console.log("Enviando...🚴‍♂️");
+                    setTimeout(() => {
+                        resolve("Entregado 🏠");
+                    }, 6000);
+                });
+            })
+            .then((mensajeEntrega) => {
+                mensajeParrafo.innerHTML += "<br>" + mensajeEntrega;
+                console.log(mensajeEntrega);
+            })
+            .catch((error) => {
+                mensajeParrafo.innerHTML = error;
+                console.log(error);
+            });
+    }
+</script>
+
+</html>
