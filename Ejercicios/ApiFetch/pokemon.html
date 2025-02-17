@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="contenido"></p>
+</body>
+
+<script>
+
+    function obtenerPokemon() {
+        const pokemonIntroducir = prompt("Introduce un pokemon: ");
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemonIntroducir}`;
+
+        fetch(url)
+            .then(respuesta => {
+                return respuesta.json();
+            })
+            .then(datos => {
+                mostrarHTML(datos);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function mostrarHTML({name, sprites, types, weight, abilities, stats}) {
+        const contenido = document.getElementById('contenido');
+        contenido.innerHTML = `
+        <h1>INFORMACIÓN SOBRE ${name}</h1>
+            <p>Nombre: ${name}</p>
+            <p>Tipo: ${types[0].type.name}</p>
+            <p>Peso: ${weight}</p>
+            <p>Habilidades: ${abilities[1].ability.name}</p>
+            <img src="${sprites.front_default}" alt="${name}">
+        `;
+
+    }
+
+    obtenerPokemon();
+
+</script>
+
+</html>

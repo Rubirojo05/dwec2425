@@ -2,14 +2,14 @@
 [
     {
         "id": 2,
-        "nombre": "Pepe",
-        "empresa": "McDonalds",
-        "trabajo": "Cocinero"
+        "nombre": "Mariano",
+        "empresa": "Burger King",
+        "trabajo": "Limpiador"
     },
     {
         "id": 3,
         "nombre": "Ruben",
-        "empresa": "IES Barajas",
+        "empresa": "Google",
         "trabajo": "Programador"
     },
     {

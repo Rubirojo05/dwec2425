@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+   async function miFuncion(){
+    let miPromesa = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('He esperado 2 segundos');
+        }, 2000);
+    });
+    console.log(1+1);
+    let resultado = await miPromesa; //Pausado
+    console.log(resultado);
+    console.log(2+2);
+   }
+
+   const cargarDatos = async () => {
+       const url = "https://jsonplaceholder.typicode.com/todos/1";
+       const res = await fetch(url);
+       const datos = await res.json();
+       console.log(datos);
+   }
+
+   cargarDatos();
+
+   miFuncion();
+</script>
+
+</html>

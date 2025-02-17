@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagación de Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .contenedor {
+            width: 300px;
+            padding: 50px;
+            background: lightblue;
+            margin: 20px auto;
+        }
+
+        .caja {
+            width: 200px;
+            padding: 30px;
+            background: lightcoral;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .boton {
+            padding: 10px 20px;
+            background: yellow;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor" id="contenedor">
+        <div class="caja" id="caja">
+            <button class="boton" id="boton">Haz Clic</button>
+        </div>
+    </div>
+
+    <script>
+        // Evento en el contenedor (Fase de Captura)
+        document.getElementById("contenedor").addEventListener("click", function () {
+            console.log("📦 Clic en CONTENEDOR (captura)");
+        }, true); // <- CAPTURA ACTIVADA
+
+        // Evento en la caja (Fase de Propagación)
+        document.getElementById("caja").addEventListener("click", function () {
+            console.log("🟥 Clic en CAJA (bubbling)");
+        });
+
+        // Evento en el botón
+        document.getElementById("boton").addEventListener("click", function (event) {
+            console.log("🟡 Clic en BOTÓN");
+            // event.stopPropagation(); // Descomentar para evitar que el evento suba
+        });
+    </script>
+
+</body>
+
+</html>
